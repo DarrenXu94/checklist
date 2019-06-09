@@ -6,6 +6,6 @@ const testList = [
 const timeout = ms => new Promise(res => setTimeout(res, ms))
 
 export const FetchList = async () => {
-    await timeout(10000)
+    await timeout(3000)
     return testList
 }

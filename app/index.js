@@ -15,17 +15,20 @@ class App extends React.Component{
     }
 
     renderList = () => {
-        return (this.state.localList.length == 0) ? "Loading" : "DONE"
+        let {localList} = this.state
+        return (localList.length == 0) 
+        ? "Loading" 
+        : localList.map((val) => {
+            return <ListItem key = {val.task} data={val.task}/>
+
+        })
        
     }
 
     render(){
         return(
             <div>
-                Hello World
-                <ListItem data={"test"}/>
                 { this.renderList() }
-                
             </div>
         )
     }
