@@ -1,6 +1,7 @@
 const testList = [
-    {task:"Test"},
-    {task:"Test2"}
+    {task:"Add in Font awesome"},
+    {task:"Editable tasks"},
+    {task:"Serverless"}
 ]
 
 const timeout = ms => new Promise(res => setTimeout(res, ms))
