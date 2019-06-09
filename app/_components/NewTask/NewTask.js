@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import OutsideAlerter from "../OutsideAlerter/OutsideAlerter";
 
 export default class NewTask extends Component {
     state = {
@@ -22,15 +23,21 @@ export default class NewTask extends Component {
     toggleForm = () => {
         this.setState({showForm: !this.state.showForm})
     }
+
+    clearNewTask = () => {
+        this.setState({showForm: false})
+    }
+
     render() {
         return (
-            <div>
+            <OutsideAlerter parentOutsideFunction={this.clearNewTask}>
                 <div>
-                    <button onClick={this.toggleForm}>+ New Task</button>
+                    <div>
+                        <button onClick={this.toggleForm}>+ New Task</button>
+                    </div>
+                    {this.NewTaskForm()}
                 </div>
-
-                {this.NewTaskForm()}
-            </div>
+            </OutsideAlerter>
         )
     }
 }
