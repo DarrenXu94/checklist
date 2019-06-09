@@ -2,33 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import ListItem from './_components/ListItem/ListItem'
+import NewTask from './_components/NewTask/NewTask'
+import RenderList from './_components/RenderList/RenderList'
+
+
 import { FetchList } from './_actions/FetchData'
 
-class App extends React.Component{
+class App extends React.Component {
     state = {
         localList: []
     }
-    async componentDidMount(){
+    async componentDidMount() {
         const localList = await FetchList()
-        this.setState({localList})
+        this.setState({ localList })
     }
 
-    renderList = () => {
-        let {localList} = this.state
-        return (localList.length == 0) 
-        ? "Loading" 
-        : localList.map((val) => {
-            return <ListItem key = {val.task} data={val.task}/>
-
-        })
-       
-    }
-
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                { this.renderList() }
+                <RenderList localList={this.state.localList} />
+                <NewTask />
             </div>
         )
     }

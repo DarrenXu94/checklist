@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function listItem({data}) {
-    return (
-        <div>
-            {data}
-        </div>
-    )
+export default class ListItem extends Component {
+
+    renderSelected = () => {
+        return (this.props.selected)
+        ? "Selected"
+        : null
+
+    }
+    
+    render() {
+        return (
+            <div id={this.props.data}>
+                {this.props.data}
+                {this.renderSelected()}
+            </div>
+        )
+    }
 }
