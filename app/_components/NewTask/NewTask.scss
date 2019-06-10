@@ -1,0 +1,6 @@
+@import '../../styles/utils.scss';
+
+.newTaskButton {
+    @extend .baseButton;
+    font-size: 1.3rem; 
+}

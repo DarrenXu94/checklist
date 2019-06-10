@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from './index.css';
+import './index.scss';
 
 import NewTask from './_components/NewTask/NewTask'
 import RenderList from './_components/RenderList/RenderList'
@@ -35,7 +35,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <h1 className={styles.fontColor}>To Do List</h1>
+                <h1 className={"darkFont"}>To Do List</h1>
                 <RenderList localList={this.state.localList} handleSubmit = {this.handleSubmit}/>
                 <NewTask />
             </div>

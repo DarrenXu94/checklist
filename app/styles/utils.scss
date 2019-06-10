@@ -1,12 +1,15 @@
-:root {
-    --main-font-color: #777;
+$dark-font: #333;
+$light-font:#777;
+
+.darkFont {
+    color: $dark-font;
 }
 
-.fontColor {
-    color: var(--main-font-color);
+.lightFont {
+    color: $light-font;
 }
 
-/* .baseButton {
+.baseButton {
     padding: .5rem;
     margin-top: .5rem;
     border: 1px solid #2F79AD;
@@ -16,4 +19,5 @@
 
 .baseButton:hover {
     background-color: rgb(183, 215, 238);
-} */
+    cursor: pointer;
+}

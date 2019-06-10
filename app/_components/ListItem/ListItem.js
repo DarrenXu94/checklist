@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
-import styles from './ListItem.css'
+import styles from './ListItem.scss'
 
 export default class ListItem extends Component {
     input = React.createRef();
@@ -32,7 +32,7 @@ export default class ListItem extends Component {
     
     render() {
         return (
-            <div className={styles.test} id={this.props.data.id}>
+            <div className={"darkFont"} id={this.props.data.id}>
                 {this.EditTaskForm()}
             </div>
         )

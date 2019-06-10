@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import OutsideAlerter from "../OutsideAlerter/OutsideAlerter";
 import cx from 'classnames'
 
-import style from './NewTask.css'
+import './NewTask.scss'
 
 export default class NewTask extends Component {
     state = {
@@ -32,12 +32,11 @@ export default class NewTask extends Component {
     }
 
     render() {
-        console.log(style)
         return (
             <OutsideAlerter parentOutsideFunction={this.clearNewTask}>
                 <div>
                     <div>
-                        <button className={cx(style.newTaskButton, style.baseButton)} onClick={this.toggleForm}>
+                        <button className={"newTaskButton"} onClick={this.toggleForm}>
                             <i className="fas fa-plus"></i>
                             New Task
                         </button>
