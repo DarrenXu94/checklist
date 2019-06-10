@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
-import styles from './ListItem.scss'
+import './ListItem.scss'
 
 export default class ListItem extends Component {
     input = React.createRef();
@@ -25,9 +25,13 @@ export default class ListItem extends Component {
         }
 
         return (
-            <form id={this.props.data.id} onSubmit={this.handleSubmit}>
-                <input id={this.props.data.id} type="text" name={this.props.data.id} defaultValue={this.props.data.task} ref={this.input} />
-                {/* <input id={this.props.data.id} type="submit" value="Submit" /> */}
+            <form id={this.props.data.id} className={"baseForm"} onSubmit={this.handleSubmit}>
+                <input  
+                id={this.props.data.id} 
+                type="text" 
+                name={this.props.data.id} 
+                defaultValue={this.props.data.task} 
+                ref={this.input} />
                 <i className="fas fa-check-square" onClick={this.handleSubmit}></i>
                 <i className="fas fa-window-close"></i>
                 <i className="fas fa-trash-alt" onClick={this.handleDelete}></i>
