@@ -18,6 +18,18 @@ class App extends React.Component {
         this.setState({ localList })
     }
 
+    handleAddNew = async (e) => {
+        const value = e.current.value
+        let newList = this.state.localList
+        newList.push({
+            id: (Math.floor(Math.random() * Math.floor(100))).toString(),
+            task: value
+        })
+        this.setState({localList: newList})
+
+
+    }
+
     handleSubmit = async (e) => {
         const value = e.current.value
         const name = e.current.id
@@ -50,7 +62,7 @@ class App extends React.Component {
                 handleSubmit = {this.handleSubmit}
                 handleDelete = {this.handleDelete}
                 />
-                <NewTask />
+                <NewTask handleAddNew= {this.handleAddNew}/>
             </div>
         )
     }

@@ -8,17 +8,21 @@ export default class NewTask extends Component {
     state = {
         showForm: false
     }
+    input = React.createRef();
+
+    handleAddNew = (e) => {
+        e.preventDefault()
+        this.props.handleAddNew(this.input)
+    }
+
     NewTaskForm = () => {
         if (!this.state.showForm) {
             return null
         }
 
         return (
-            <form>
-                <label>
-                    Task:
-                    <input type="text" name="task" />
-                </label>
+            <form onSubmit={this.handleAddNew}>
+                <input type="text" name="task" defaultValue={""} ref={this.input} />
                 <input type="submit" value="Submit" />
             </form>
         )
