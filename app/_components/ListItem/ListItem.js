@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
+import styles from './ListItem.css'
+
 export default class ListItem extends Component {
     input = React.createRef();
 
@@ -19,18 +21,19 @@ export default class ListItem extends Component {
 
         return (
             <form id={this.props.data.id} onSubmit={this.handleSubmit}>
-                {/* <input id={this.props.data.id} type="text" name={this.props.data.id} value={this.props.data.task} onChange = {this.props.onChange}/> */}
                 <input id={this.props.data.id} type="text" name={this.props.data.id} defaultValue={this.props.data.task} ref={this.input} />
-                <input id={this.props.data.id} type="submit" value="Submit" />
+                {/* <input id={this.props.data.id} type="submit" value="Submit" /> */}
+                <i className="fas fa-check-square" onClick={this.handleSubmit}></i>
+                <i className="fas fa-window-close"></i>
+
             </form>
         )
     }
     
     render() {
         return (
-            <div id={this.props.data.id}>
+            <div className={styles.test} id={this.props.data.id}>
                 {this.EditTaskForm()}
-                {/* <i id={this.props.data} className="fas fa-edit"></i> */}
             </div>
         )
     }

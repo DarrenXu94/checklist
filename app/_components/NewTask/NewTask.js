@@ -33,7 +33,10 @@ export default class NewTask extends Component {
             <OutsideAlerter parentOutsideFunction={this.clearNewTask}>
                 <div>
                     <div>
-                        <button onClick={this.toggleForm}>+ New Task</button>
+                        <button onClick={this.toggleForm}>
+                            <i className="fas fa-plus"></i>
+                            New Task
+                        </button>
                     </div>
                     {this.NewTaskForm()}
                 </div>

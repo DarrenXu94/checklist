@@ -1,0 +1,7 @@
+:root {
+    --main-font-color: #777;
+}
+
+.fontColor {
+    color: var(--main-font-color);
+}

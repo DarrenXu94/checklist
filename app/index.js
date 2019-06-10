@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import styles from './index.css';
 
 import NewTask from './_components/NewTask/NewTask'
 import RenderList from './_components/RenderList/RenderList'
 
 
 import { FetchList } from './_actions/FetchData'
+import { UpdateData } from './_actions/UpdateData'
 
 class App extends React.Component {
     state = {
@@ -17,7 +18,7 @@ class App extends React.Component {
         this.setState({ localList })
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         const value = e.current.value
         const name = e.current.id
         
@@ -27,12 +28,14 @@ class App extends React.Component {
         })
 
         this.setState({localList: newList})
+        await UpdateData({id:name, task: value})
 
     }
 
     render() {
         return (
             <div>
+                <h1 className={styles.fontColor}>To Do List</h1>
                 <RenderList localList={this.state.localList} handleSubmit = {this.handleSubmit}/>
                 <NewTask />
             </div>
