@@ -2,50 +2,40 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
 export default class ListItem extends Component {
+    input = React.createRef();
 
-    state = {
-        editMode: false
-    }
-
-    renderSelected = () => {
-        return (this.props.selected)
-        ? <i className="fas fa-edit"></i>
-        : null
-
+    handleSubmit = (e) => {
+        e.preventDefault()
+        // console.log(this.input.current.value)
+        this.props.deselectOnSubmit()
+        this.props.handleSubmit(this.input)
     }
 
     EditTaskForm = () => {
-        if (!this.state.editMode) {
-            return this.props.data
-        }
 
         if (!this.props.selected){
-            this.setState({editMode: false})
-            return this.props.data
+            return this.props.data.task
         }
 
         return (
-            <form>
-                <label>
-                    Task:
-                    <input type="text" name="task" />
-                </label>
-                <input type="submit" value="Submit" />
+            <form id={this.props.data.id} onSubmit={this.handleSubmit}>
+                {/* <input id={this.props.data.id} type="text" name={this.props.data.id} value={this.props.data.task} onChange = {this.props.onChange}/> */}
+                <input id={this.props.data.id} type="text" name={this.props.data.id} defaultValue={this.props.data.task} ref={this.input} />
+                <input id={this.props.data.id} type="submit" value="Submit" />
             </form>
         )
     }
     
     render() {
         return (
-            <div id={this.props.data}>
+            <div id={this.props.data.id}>
                 {this.EditTaskForm()}
-                {this.renderSelected()}
-                <i id={this.props.data} className="fas fa-edit" onClick={()=>this.setState({editMode: !this.state.editMode})}></i>
+                {/* <i id={this.props.data} className="fas fa-edit"></i> */}
             </div>
         )
     }
 }
 
 ListItem.propTypes = {
-    data: PropTypes.string.isRequired,
+    data: PropTypes.object.isRequired,
   };

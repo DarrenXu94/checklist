@@ -17,10 +17,23 @@ class App extends React.Component {
         this.setState({ localList })
     }
 
+    handleSubmit = (e) => {
+        const value = e.current.value
+        const name = e.current.id
+        
+        let currentList = this.state.localList
+        let newList = currentList.map((el) => {
+            return (el.id == name) ? {id:el.id, task: value} : el
+        })
+
+        this.setState({localList: newList})
+
+    }
+
     render() {
         return (
             <div>
-                <RenderList localList={this.state.localList} />
+                <RenderList localList={this.state.localList} handleSubmit = {this.handleSubmit}/>
                 <NewTask />
             </div>
         )

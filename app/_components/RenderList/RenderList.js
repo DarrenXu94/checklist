@@ -9,9 +9,13 @@ export default class RenderList extends Component {
     }
 
     selectListItem = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         console.log(e.target.id)
         this.setState({selectedItem: e.target.id})
+    }
+
+    deselectOnSubmit = () => {
+        this.setState({selectedItem: null})
     }
 
     renderList = () => {
@@ -19,7 +23,10 @@ export default class RenderList extends Component {
         return (localList.length == 0)
             ? "Loading"
             : localList.map((val) => {
-                return <ListItem key={val.task} data={val.task} selected={this.state.selectedItem == val.task}/>
+                return <ListItem key={val.task} data={val} selected={this.state.selectedItem == val.id} 
+                handleSubmit = {this.props.handleSubmit}
+                deselectOnSubmit = {this.deselectOnSubmit}
+                />
 
             })
     }
