@@ -7,7 +7,7 @@ import RenderList from './_components/RenderList/RenderList'
 
 
 import { FetchList } from './_actions/FetchData'
-import { UpdateData } from './_actions/UpdateData'
+import { UpdateData, DeleteData } from './_actions/UpdateData'
 
 class App extends React.Component {
     state = {
@@ -23,7 +23,7 @@ class App extends React.Component {
         const name = e.current.id
         
         let currentList = this.state.localList
-        let newList = currentList.map((el) => {
+        const newList = currentList.map((el) => {
             return (el.id == name) ? {id:el.id, task: value} : el
         })
 
@@ -32,11 +32,24 @@ class App extends React.Component {
 
     }
 
+    handleDelete = async (e) => {
+        let currentList = this.state.localList
+        const newList = currentList.filter(el=>{
+            return (el.id !== e)
+        })
+        this.setState({localList: newList})
+        await DeleteData(e)
+    }
+
     render() {
         return (
             <div>
                 <h1 className={"darkFont"}>To Do List</h1>
-                <RenderList localList={this.state.localList} handleSubmit = {this.handleSubmit}/>
+                <RenderList 
+                localList={this.state.localList} 
+                handleSubmit = {this.handleSubmit}
+                handleDelete = {this.handleDelete}
+                />
                 <NewTask />
             </div>
         )

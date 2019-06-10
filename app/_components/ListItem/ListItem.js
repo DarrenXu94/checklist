@@ -13,6 +13,11 @@ export default class ListItem extends Component {
         this.props.handleSubmit(this.input)
     }
 
+    handleDelete = (e) => {
+        e.preventDefault()
+        this.props.handleDelete(this.props.data.id)
+    }
+
     EditTaskForm = () => {
 
         if (!this.props.selected){
@@ -25,7 +30,7 @@ export default class ListItem extends Component {
                 {/* <input id={this.props.data.id} type="submit" value="Submit" /> */}
                 <i className="fas fa-check-square" onClick={this.handleSubmit}></i>
                 <i className="fas fa-window-close"></i>
-
+                <i className="fas fa-trash-alt" onClick={this.handleDelete}></i>
             </form>
         )
     }
