@@ -1,12 +1,4 @@
-:root {
-    --main-font-color: #777;
-}
-
-.fontColor {
-    color: var(--main-font-color);
-}
-
-/* .baseButton {
+.baseButton {
     padding: .5rem;
     margin-top: .5rem;
     border: 1px solid #2F79AD;
@@ -16,4 +8,10 @@
 
 .baseButton:hover {
     background-color: rgb(183, 215, 238);
-} */
+    cursor: pointer;
+}
+
+.newTaskButton {
+    composes: baseButton;
+    font-size: 1.3rem; 
+}

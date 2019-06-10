@@ -9,9 +9,9 @@ module.exports = {
     },
     module : {
         rules : [
-            {test : /\.(js)$/, use:'babel-loader'},
-            {test : /\.css$/i, use:'style-loader'},
-            {test : /\.css$/i, loader: require.resolve('css-loader'), options: {
+            {test : /\.(js)$/, use:'babel-loader', exclude: /node_modules/ },
+            {test : /\.css$/, use:'style-loader'},
+            {test : /\.css$/, loader: 'css-loader', query: {
                 importLoaders: 1,
                 modules: true,
                 localIdentName: "[name]__[local]___[hash:base64:5]"  
@@ -23,6 +23,7 @@ module.exports = {
         new HtmlWebpackPlugin ({
             template : 'app/index.html'
         })
+
     ]
 
 }
