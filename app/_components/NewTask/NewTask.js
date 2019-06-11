@@ -22,17 +22,17 @@ export default class NewTask extends Component {
 
         return (
             <form className={"baseForm"} onSubmit={this.handleAddNew}>
-                <input type="text" name="task" defaultValue={""} ref={this.input} />
+                <input type="text" name="task" defaultValue={""} ref={input => this.input = input && input.focus()} />
                 <button className={"baseButton"} onClick={this.handleAddNew}>Add</button>
             </form>
         )
     }
     toggleForm = () => {
-        this.setState({showForm: !this.state.showForm})
+        this.setState({ showForm: !this.state.showForm })
     }
 
     clearNewTask = () => {
-        this.setState({showForm: false})
+        this.setState({ showForm: false })
     }
 
     render() {
@@ -40,12 +40,10 @@ export default class NewTask extends Component {
             <OutsideAlerter parentOutsideFunction={this.clearNewTask}>
                 <div className={"addTask"}>
                     <div className={"add"} onClick={this.toggleForm}>
-                        {/* <button className={"newTaskButton"} > */}
-                            <i className="fas fa-plus"></i>
-                            <span className={"darkFont"}>
-                                New Task
-                            </span>
-                        {/* </button> */}
+                        <i className="fas fa-plus"></i>
+                        <span className={"darkFont"}>
+                            New Task
+                        </span>
                     </div>
                     {this.NewTaskForm()}
                 </div>

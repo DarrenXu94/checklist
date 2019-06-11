@@ -33,7 +33,7 @@ export default class ListItem extends Component {
                 type="text" 
                 name={this.props.data.id} 
                 defaultValue={this.props.data.task} 
-                ref={this.input} />
+                ref={input => this.input = input && input.focus()} />
                 <i className="fas fa-check-square baseButton" onClick={this.handleSubmit}></i>
                 <i className="fas fa-window-close baseButton"></i>
                 <i className="fas fa-trash-alt baseButton" onClick={this.handleDelete}></i>
