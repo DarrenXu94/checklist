@@ -43,8 +43,8 @@ export default class ListItem extends Component {
     
     render() {
         return (
-            <div className={"darkFont"} id={this.props.data.id}>
-                <ul>
+            <div className={"darkFont card"} id={this.props.data.id}>
+                <ul className={"ulStyle"}>
                     {this.EditTaskForm()}
                 </ul>
             </div>

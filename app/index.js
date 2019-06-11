@@ -56,13 +56,20 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <header>
+
                 <h1 className={"darkFont"}>To Do List</h1>
+                </header>
+                <section className={"content"}>
+
+                <NewTask handleAddNew= {this.handleAddNew}/>
+
                 <RenderList 
                 localList={this.state.localList} 
                 handleSubmit = {this.handleSubmit}
                 handleDelete = {this.handleDelete}
                 />
-                <NewTask handleAddNew= {this.handleAddNew}/>
+                </section>
             </div>
         )
     }

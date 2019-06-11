@@ -38,12 +38,14 @@ export default class NewTask extends Component {
     render() {
         return (
             <OutsideAlerter parentOutsideFunction={this.clearNewTask}>
-                <div>
-                    <div>
-                        <button className={"newTaskButton"} onClick={this.toggleForm}>
+                <div className={"addTask"}>
+                    <div className={"add"} onClick={this.toggleForm}>
+                        {/* <button className={"newTaskButton"} > */}
                             <i className="fas fa-plus"></i>
-                            New Task
-                        </button>
+                            <span className={"darkFont"}>
+                                New Task
+                            </span>
+                        {/* </button> */}
                     </div>
                     {this.NewTaskForm()}
                 </div>
