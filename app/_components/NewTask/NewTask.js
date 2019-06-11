@@ -15,6 +15,12 @@ export default class NewTask extends Component {
         this.props.handleAddNew(this.input)
     }
 
+    componentDidUpdate(){
+        if (this.input.current){
+            this.input.current.focus()
+        }
+    }
+
     NewTaskForm = () => {
         if (!this.state.showForm) {
             return null
@@ -22,7 +28,7 @@ export default class NewTask extends Component {
 
         return (
             <form className={"baseForm"} onSubmit={this.handleAddNew}>
-                <input type="text" name="task" defaultValue={""} ref={input => this.input = input && input.focus()} />
+                <input type="text" name="task" defaultValue={""} ref={this.input} />
                 <button className={"baseButton"} onClick={this.handleAddNew}>Add</button>
             </form>
         )
