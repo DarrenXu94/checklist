@@ -21,7 +21,9 @@ export default class ListItem extends Component {
     EditTaskForm = () => {
 
         if (!this.props.selected){
-            return this.props.data.task
+            return <li className={"listItem"} id={this.props.data.id}>
+                {this.props.data.task}
+            </li>
         }
 
         return (
@@ -32,9 +34,9 @@ export default class ListItem extends Component {
                 name={this.props.data.id} 
                 defaultValue={this.props.data.task} 
                 ref={this.input} />
-                <i className="fas fa-check-square" onClick={this.handleSubmit}></i>
-                <i className="fas fa-window-close"></i>
-                <i className="fas fa-trash-alt" onClick={this.handleDelete}></i>
+                <i className="fas fa-check-square baseButton" onClick={this.handleSubmit}></i>
+                <i className="fas fa-window-close baseButton"></i>
+                <i className="fas fa-trash-alt baseButton" onClick={this.handleDelete}></i>
             </form>
         )
     }
@@ -42,7 +44,9 @@ export default class ListItem extends Component {
     render() {
         return (
             <div className={"darkFont"} id={this.props.data.id}>
-                {this.EditTaskForm()}
+                <ul>
+                    {this.EditTaskForm()}
+                </ul>
             </div>
         )
     }
