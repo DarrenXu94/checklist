@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import './ListItem.scss'
 
 export default class ListItem extends Component {
+    state = {
+        itemClass : "darkFont card animate-card-in"
+    }
     input = React.createRef();
 
     handleSubmit = (e) => {
@@ -15,7 +18,10 @@ export default class ListItem extends Component {
 
     handleDelete = (e) => {
         e.preventDefault()
-        this.props.handleDelete(this.props.data.id)
+        this.setState({itemClass: 'darkFont card'})
+        setTimeout(() => {          
+            this.props.handleDelete(this.props.data.id)
+          }, 950);
     }
     componentDidUpdate(){
         if (this.input.current){
@@ -48,7 +54,7 @@ export default class ListItem extends Component {
     
     render() {
         return (
-            <div className={"darkFont card"} id={this.props.data.id}>
+            <div className={this.state.itemClass} id={this.props.data.id}>
                 <ul className={"ulStyle"}>
                     {this.EditTaskForm()}
                 </ul>
