@@ -5,7 +5,7 @@ import './ListItem.scss'
 
 export default class ListItem extends Component {
     state = {
-        itemClass : "darkFont card animate-card-in"
+        itemClass: "darkFont card animate-card-in"
     }
     input = React.createRef();
 
@@ -18,20 +18,20 @@ export default class ListItem extends Component {
 
     handleDelete = (e) => {
         e.preventDefault()
-        this.setState({itemClass: 'darkFont card'})
-        setTimeout(() => {          
+        this.setState({ itemClass: 'darkFont card' })
+        setTimeout(() => {
             this.props.handleDelete(this.props.data.id)
-          }, 950);
+        }, 950);
     }
-    componentDidUpdate(){
-        if (this.input.current){
+    componentDidUpdate() {
+        if (this.input.current) {
             this.input.current.focus()
         }
     }
 
     EditTaskForm = () => {
 
-        if (!this.props.selected){
+        if (!this.props.selected) {
             return <li className={"listItem"} id={this.props.data.id}>
                 {this.props.data.task}
             </li>
@@ -39,20 +39,26 @@ export default class ListItem extends Component {
 
         return (
             <form id={this.props.data.id} className={"baseForm"} onSubmit={this.handleSubmit}>
-                <input  
-                className={"animate-card-in"}
-                id={this.props.data.id} 
-                type="text" 
-                name={this.props.data.id} 
-                defaultValue={this.props.data.task} 
-                ref={this.input} />
-                <i className="fas fa-check-square baseButton" onClick={this.handleSubmit}></i>
-                <i className="fas fa-window-close baseButton"></i>
-                <i className="fas fa-trash-alt baseButton" onClick={this.handleDelete}></i>
+                <input
+                    className={"animate-card-in"}
+                    id={this.props.data.id}
+                    type="text"
+                    name={this.props.data.id}
+                    defaultValue={this.props.data.task}
+                    ref={this.input} />
+                <i className="fas fa-check-square baseButton tooltip" onClick={this.handleSubmit}>
+                    <span class="tooltiptext">Save changes</span>
+                </i>
+                <i className="fas fa-window-close baseButton tooltip">
+                    <span class="tooltiptext">Cancel changes</span>
+                </i>
+                <i className="fas fa-trash-alt baseButton tooltip" onClick={this.handleDelete}>
+                    <span class="tooltiptext">Delete item</span>
+                </i>
             </form>
         )
     }
-    
+
     render() {
         return (
             <div className={this.state.itemClass} id={this.props.data.id}>
@@ -66,4 +72,4 @@ export default class ListItem extends Component {
 
 ListItem.propTypes = {
     data: PropTypes.object.isRequired,
-  };
+};
