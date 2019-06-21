@@ -1,5 +1,6 @@
 $dark-font: #333;
 $light-font:#777;
+$background-blue: #6DB9EE;
 
 .darkFont {
     color: $dark-font;
@@ -14,7 +15,7 @@ $light-font:#777;
     margin: 0.3rem;
     border: 1px solid #2F79AD;
     border-radius: 4px;
-    background-color: #6DB9EE;
+    background-color: $background-blue;
 }
 
 .baseButton:hover {
@@ -72,10 +73,12 @@ $light-font:#777;
     text-align: center;
     visibility: hidden;
     width: 120px;
-    background-color: black;
+    background-color: $background-blue;
     color: #fff;
     text-align: center;
     border-radius: 6px;
+    border: 1px solid #2F79AD;
+
     padding: 5px 0;
     position: absolute;
     z-index: 1;
