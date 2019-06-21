@@ -1,6 +1,7 @@
 $dark-font: #333;
 $light-font:#777;
 $background-blue: #6DB9EE;
+$background-blue-highlight: rgb(183, 215, 238);
 
 .darkFont {
     color: $dark-font;
@@ -19,7 +20,7 @@ $background-blue: #6DB9EE;
 }
 
 .baseButton:hover {
-    background-color: rgb(183, 215, 238);
+    background-color:$background-blue-highlight;
     cursor: pointer;
 }
 
@@ -64,45 +65,44 @@ $background-blue: #6DB9EE;
   .tooltip {
     position: relative;
     display: inline-block;
+    & .tooltiptext {
+        font-family: 'PT Sans', sans-serif;
+        font-size: 0.8rem;
+        text-align: center;
+        visibility: hidden;
+        width: 120px;
+        background-color: $background-blue-highlight;
+        color: $dark-font;
+        text-align: center;
+        border-radius: 6px;
+        border: 1px solid #2F79AD;
 
-  }
-  
-  .tooltip .tooltiptext {
-    font-family: 'PT Sans', sans-serif;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: 120%;
+        left: 50%;
+        margin-left: -60px;
+        
+        /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+        opacity: 0;
+        transition: opacity 1s;
 
-    text-align: center;
-    visibility: hidden;
-    width: 120px;
-    background-color: $background-blue;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    border: 1px solid #2F79AD;
+        &::after{
+            content: " ";
+            position: absolute;
+            bottom: 100%;  /* At the top of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent; 
+        }
+    }
 
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    top: 120%;
-    left: 50%;
-    margin-left: -60px;
-    
-    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
-    opacity: 0;
-    transition: opacity 1s;
-  }
-  
-  .tooltip:hover .tooltiptext {
+    &:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+    }
   }
-
-  .tooltip .tooltiptext::after {
-    content: " ";
-    position: absolute;
-    bottom: 100%;  /* At the top of the tooltip */
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent black transparent;
-  }
+  

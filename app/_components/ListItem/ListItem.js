@@ -47,13 +47,13 @@ export default class ListItem extends Component {
                     defaultValue={this.props.data.task}
                     ref={this.input} />
                 <i className="fas fa-check-square baseButton tooltip" onClick={this.handleSubmit}>
-                    <span class="tooltiptext">Save changes</span>
+                    <span className="tooltiptext">Save changes</span>
                 </i>
                 <i className="fas fa-window-close baseButton tooltip">
-                    <span class="tooltiptext">Cancel changes</span>
+                    <span className="tooltiptext">Cancel changes</span>
                 </i>
                 <i className="fas fa-trash-alt baseButton tooltip" onClick={this.handleDelete}>
-                    <span class="tooltiptext">Delete item</span>
+                    <span className="tooltiptext">Delete item</span>
                 </i>
             </form>
         )
