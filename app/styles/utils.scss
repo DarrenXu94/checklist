@@ -35,3 +35,27 @@ $light-font:#777;
 
     }
 }
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes listItemEnter {
+    from {
+        top:-20vh;
+        opacity: 0;
+    }
+    to {
+        top:0;
+        opacity: 1;
+    }
+  }
+  
+  /* Standard syntax */
+  @keyframes listItemEnter {
+    from {
+        top:-20vh;
+        opacity: 0;
+    }
+    to {
+        top:0;
+        opacity: 1;
+    }
+  }

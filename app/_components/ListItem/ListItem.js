@@ -40,6 +40,7 @@ export default class ListItem extends Component {
         return (
             <form id={this.props.data.id} className={"baseForm"} onSubmit={this.handleSubmit}>
                 <input  
+                className={"animate-card-in"}
                 id={this.props.data.id} 
                 type="text" 
                 name={this.props.data.id} 

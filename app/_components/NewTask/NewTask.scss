@@ -18,3 +18,11 @@
 .add i{
     margin-right: 8px;
 }
+
+.fade-form-in {
+    -webkit-animation-name: listItemEnter; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: listItemEnter;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
