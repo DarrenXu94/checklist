@@ -1,0 +1,109 @@
+$dark-font: #333;
+$light-font:#777;
+$background-blue: #6DB9EE;
+$background-blue-highlight: rgb(183, 215, 238);
+
+.darkFont {
+    color: $dark-font;
+}
+
+.lightFont {
+    color: $light-font;
+}
+
+.baseButton {
+    padding: .5rem;
+    margin: 0.3rem;
+    border: 1px solid #2F79AD;
+    border-radius: 4px;
+    background-color: $background-blue;
+    min-width: 50px;
+}
+
+.baseButton:hover {
+    background-color:$background-blue-highlight;
+    cursor: pointer;
+}
+
+.baseForm {
+}
+
+.baseForm input {
+    width: 100%;
+    &[type="text"]{
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 4px;
+
+    }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes listItemEnter {
+    from {
+        top:-20vh;
+        opacity: 0;
+    }
+    to {
+        top:0;
+        opacity: 1;
+    }
+  }
+  
+  /* Standard syntax */
+  @keyframes listItemEnter {
+    from {
+        top:-20vh;
+        opacity: 0;
+    }
+    to {
+        top:0;
+        opacity: 1;
+    }
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    & .tooltiptext {
+        font-family: 'PT Sans', sans-serif;
+        font-size: 0.8rem;
+        text-align: center;
+        visibility: hidden;
+        width: 120px;
+        background-color: $background-blue-highlight;
+        color: $dark-font;
+        text-align: center;
+        border-radius: 6px;
+        border: 1px solid #2F79AD;
+
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: 120%;
+        left: 50%;
+        margin-left: -60px;
+        
+        /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+        opacity: 0;
+        transition: opacity 1s;
+
+        &::after{
+            content: " ";
+            position: absolute;
+            bottom: 100%;  /* At the top of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent; 
+        }
+    }
+
+    &:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    }
+  }
+  

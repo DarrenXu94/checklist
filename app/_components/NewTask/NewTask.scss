@@ -1,0 +1,28 @@
+@import '../../styles/utils.scss';
+
+// .newTaskButton {
+//     @extend .baseButton;
+//     font-size: 1.3rem; 
+// }
+
+.addTask {
+    border: 1px solid #D7D7D7;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.add i{
+    margin-right: 8px;
+}
+
+.fade-form-in {
+    -webkit-animation-name: listItemEnter; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: listItemEnter;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
