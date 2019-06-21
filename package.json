@@ -14,7 +14,7 @@
     ]
   },
   "scripts": {
-    "create": "webpack",
+    "create": "webpack -p",
     "dev": "webpack-dev-server --open"
   },
   "keywords": [],
