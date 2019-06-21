@@ -17,6 +17,7 @@ $background-blue-highlight: rgb(183, 215, 238);
     border: 1px solid #2F79AD;
     border-radius: 4px;
     background-color: $background-blue;
+    min-width: 50px;
 }
 
 .baseButton:hover {

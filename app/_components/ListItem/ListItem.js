@@ -46,6 +46,8 @@ export default class ListItem extends Component {
                     name={this.props.data.id}
                     defaultValue={this.props.data.task}
                     ref={this.input} />
+                    <span className={"even-buttons"}>
+
                 <i className="fas fa-check-square baseButton tooltip" onClick={this.handleSubmit}>
                     <span className="tooltiptext">Save changes</span>
                 </i>
@@ -55,6 +57,8 @@ export default class ListItem extends Component {
                 <i className="fas fa-trash-alt baseButton tooltip" onClick={this.handleDelete}>
                     <span className="tooltiptext">Delete item</span>
                 </i>
+                </span>
+
             </form>
         )
     }
