@@ -26,3 +26,15 @@
     animation-duration: 1s;
     animation-timing-function: ease-out;
 }
+
+.new-task-style {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}

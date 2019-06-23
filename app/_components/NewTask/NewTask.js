@@ -27,9 +27,11 @@ export default class NewTask extends Component {
         }
 
         return (
-            <form className={"baseForm"} onSubmit={this.handleAddNew}>
-                <input className={"fade-form-in"} type="text" name="task" defaultValue={""} ref={this.input} />
-                <button className={"baseButton"} onClick={this.handleAddNew}>Add</button>
+            <form className={"baseForm new-task-style"} onSubmit={this.handleAddNew}>
+                <input className={"fade-form-in width-70"} type="text" name="task" defaultValue={""} ref={this.input} />
+                <span className={"button-span"}>
+                    <button className={"baseButton min-width-x"} onClick={this.handleAddNew}>Add</button>
+                </span>
             </form>
         )
     }

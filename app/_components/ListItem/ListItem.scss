@@ -41,6 +41,21 @@
 
 .even-buttons{
     text-align: center;
-    display: flex;
-    justify-content: flex-end;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+
+.grid-5-3 {
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+}
+
+.input-style {
+    font-size: 1rem;
+    margin: 0 !important;
+}
+
+.list-style {
+    padding: 12px 20px;
 }
