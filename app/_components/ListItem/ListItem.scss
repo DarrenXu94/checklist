@@ -21,6 +21,11 @@
     animation: animateOut 1s linear ;
 }
 
+.animate-card-none {
+    -webkit-animation-name: none; /* Safari 4.0 - 8.0 */
+    animation-name: none;
+}
+
 .animate-card-in {
     -webkit-animation-name: listItemEnter; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */

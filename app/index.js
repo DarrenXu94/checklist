@@ -14,8 +14,16 @@ class App extends React.Component {
         localList: []
     }
 
+    tagSpecial = (localList) => {
+        return localList.map(el => {
+            el.preload = true;
+            return el
+        })
+    }
+
     async componentDidMount() {
-        const localList = await FetchList()
+        let localList = await FetchList()
+        localList = this.tagSpecial(localList)
         this.setState({ localList })
     }
    

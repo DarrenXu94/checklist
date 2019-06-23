@@ -5,7 +5,7 @@ import './ListItem.scss'
 
 export default class ListItem extends Component {
     state = {
-        itemClass: "darkFont card animate-card-in"
+        itemClass: `darkFont card ${this.props.data.preload ? 'animate-card-none' : 'animate-card-in'}`
     }
     input = React.createRef();
 

@@ -115,3 +115,10 @@ $background-blue-highlight: rgb(183, 215, 238);
     min-width: 80px;
 }
 
+.preload * {
+    animation: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+  }
