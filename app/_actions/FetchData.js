@@ -1,7 +1,7 @@
 const testList = [
-    {id:"first", task:"Add in Font awesome"},
-    {id:"second", task:"Editable tasks"},
-    {id:"third", task:"Serverless"}
+    {id:"first", task:"Canned chickpeas"},
+    {id:"second", task:"Bread"},
+    {id:"third", task:"Vegetables"}
 ]
 
 const timeout = ms => new Promise(res => setTimeout(res, ms))

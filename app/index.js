@@ -13,10 +13,12 @@ class App extends React.Component {
     state = {
         localList: []
     }
+
     async componentDidMount() {
         const localList = await FetchList()
         this.setState({ localList })
     }
+   
 
     handleAddNew = async (e) => {
         const value = e.current.value
@@ -60,7 +62,7 @@ class App extends React.Component {
 
                 <h1 className={"darkFont"}>To Do List</h1>
                 </header>
-                <section className={"content"}>
+                <section className={"content"} >
 
                 <NewTask handleAddNew= {this.handleAddNew}/>
 
