@@ -16,6 +16,9 @@ header {
 .content {
     width: 80%;
     max-width: 900px;
+    @media screen and (max-width: $break-small) {
+        width: 90%;
+      }
     margin: 0 auto;
 }
 

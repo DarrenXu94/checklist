@@ -19,6 +19,11 @@
     margin-bottom: 8px;
     cursor: pointer;
     animation: animateOut 1s linear ;
+    overflow: auto;
+    @media screen and (max-width: $break-small) {
+        padding: 0px;
+      }
+    
 }
 
 .animate-card-none {
@@ -54,6 +59,10 @@
 .grid-5-3 {
     display: grid;
     grid-template-columns: 5fr 3fr;
+    @media screen and (max-width: $break-small) {
+        grid-template-columns: none;
+
+      }
 }
 
 .input-style {

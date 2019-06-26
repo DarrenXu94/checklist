@@ -2,6 +2,7 @@ $dark-font: #333;
 $light-font:#777;
 $background-blue: #6DB9EE;
 $background-blue-highlight: rgb(183, 215, 238);
+$break-small: 700px;
 
 .darkFont {
     color: $dark-font;
@@ -18,6 +19,11 @@ $background-blue-highlight: rgb(183, 215, 238);
     border-radius: 4px;
     background-color: $background-blue;
     min-width: 50px;
+    @media screen and (max-width: $break-small) {
+        
+        font-size: 0.8rem;
+        padding: 0.3rem;
+      }
 }
 
 .baseButton:hover {
