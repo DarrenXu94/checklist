@@ -19,8 +19,9 @@
     margin-bottom: 8px;
     cursor: pointer;
     animation: animateOut 1s linear ;
-    overflow: auto;
+    overflow: none;
     @media screen and (max-width: $break-small) {
+        overflow: auto;
         padding: 0px;
       }
     
