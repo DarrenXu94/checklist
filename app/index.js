@@ -68,7 +68,7 @@ class App extends React.Component {
             <div>
                 <header>
 
-                <h1 className={"darkFont"}>To Do List</h1>
+                <h1 className={"darkFont"}>Shopping List</h1>
                 </header>
                 <section className={"content"} >
 
