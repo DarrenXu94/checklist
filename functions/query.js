@@ -30,6 +30,6 @@ async function run() {
     ShoppingLayout = mongoose.model('shoppingModel', ShoppingSchema)
   }
 
-  let items = await ShoppingLayout
+  let items = await ShoppingLayout.find()
   return items
 }
