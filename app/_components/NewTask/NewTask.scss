@@ -30,6 +30,16 @@
 .new-task-style {
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: $break-small) {
+        display: block;
+        .width-70 {
+            width: 100%;
+        }
+        .button-span {
+            justify-content: flex-end;
+            width: 100%;
+        }
+      }
 }
 
 .button-span {

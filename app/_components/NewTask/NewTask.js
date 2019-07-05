@@ -50,7 +50,7 @@ export default class NewTask extends Component {
                     <div className={"add"} onClick={this.toggleForm}>
                         <i className="fas fa-plus"></i>
                         <span className={"darkFont"}>
-                            New Task
+                            New Item
                         </span>
                     </div>
                     {this.NewTaskForm()}

@@ -19,6 +19,16 @@
     margin-bottom: 8px;
     cursor: pointer;
     animation: animateOut 1s linear ;
+    overflow-wrap: break-word;
+    @media screen and (max-width: $break-small) {
+        padding: 0px;
+      }
+    
+}
+
+.animate-card-none {
+    -webkit-animation-name: none; /* Safari 4.0 - 8.0 */
+    animation-name: none;
 }
 
 .animate-card-in {
@@ -49,6 +59,10 @@
 .grid-5-3 {
     display: grid;
     grid-template-columns: 5fr 3fr;
+    @media screen and (max-width: $break-small) {
+        grid-template-columns: none;
+
+      }
 }
 
 .input-style {

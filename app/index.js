@@ -13,10 +13,20 @@ class App extends React.Component {
     state = {
         localList: []
     }
+
+    tagSpecial = (localList) => {
+        return localList.map(el => {
+            el.preload = true;
+            return el
+        })
+    }
+
     async componentDidMount() {
-        const localList = await FetchList()
+        let localList = await FetchList()
+        localList = this.tagSpecial(localList)
         this.setState({ localList })
     }
+   
 
     handleAddNew = async (e) => {
         const value = e.current.value
@@ -58,9 +68,9 @@ class App extends React.Component {
             <div>
                 <header>
 
-                <h1 className={"darkFont"}>To Do List</h1>
+                <h1 className={"darkFont"}>Shopping List</h1>
                 </header>
-                <section className={"content"}>
+                <section className={"content"} >
 
                 <NewTask handleAddNew= {this.handleAddNew}/>
 
