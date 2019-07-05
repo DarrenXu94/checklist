@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 let conn = null;
 
-const uri = `mongodb://${process.env.MONGO_AUTH}@mongourl:47377/shopping`;
+const uri = `mongodb://${process.env.MONGO_AUTH}@ds247377.mlab.com:47377/shopping`;
 
 exports.handler = async function(event, context, callback) {
 
