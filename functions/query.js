@@ -3,7 +3,7 @@ let Schema = mongoose.Schema;
 
 let conn = null;
 let ShoppingSchema;
-let ShoppingSchema;
+let ShoppingLayout;
 
 const uri = `mongodb://${process.env.MONGO_AUTH}@ds247377.mlab.com:47377/shopping`;
 
