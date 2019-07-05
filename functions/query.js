@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let conn = null;
+let ShoppingSchema;
+let ShoppingSchema;
 
 const uri = `mongodb://${process.env.MONGO_AUTH}@ds247377.mlab.com:47377/shopping`;
 
@@ -18,11 +20,11 @@ async function run() {
   if (conn == null) {
     conn = await mongoose
       .connect(uri, { useNewUrlParser: true })
-    const ShoppingSchema = new Schema({
+    ShoppingSchema = new Schema({
       task: String
     })
 
-    const ShoppingLayout = mongoose.model('shoppingModel', ShoppingSchema)
+    ShoppingLayout = mongoose.model('shoppingModel', ShoppingSchema)
   }
 
   let items = await ShoppingLayout
