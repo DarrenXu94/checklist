@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
 let conn = null;
 let ShoppingSchema;
@@ -12,7 +12,11 @@ exports.handler = async function (event, context, callback) {
   context.callbackWaitsForEmptyEventLoop = false;
 
   let res = await run()
-  return res
+  // return res
+  callback(null, {
+    statusCode:200,
+    body: JSON.stringify(res)
+  })
 
 };
 
