@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import axios from 'axios'
 
 import NewTask from './_components/NewTask/NewTask'
 import RenderList from './_components/RenderList/RenderList'
@@ -64,14 +63,6 @@ class App extends React.Component {
         await DeleteData(e)
     }
 
-    queryAWS = (e) => {
-        e.preventDefault()
-        console.log('clicked')
-        axios.get('/.netlify/functions/query').then(res => {
-            console.log(res)
-          })
-    }
-
     render() {
         return (
             <div>
@@ -88,7 +79,6 @@ class App extends React.Component {
                 handleSubmit = {this.handleSubmit}
                 handleDelete = {this.handleDelete}
                 />
-                <button onClick={this.queryAWS}>Mock Mongo Test</button>
                 </section>
             </div>
         )

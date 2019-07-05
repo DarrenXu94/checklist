@@ -15,7 +15,7 @@
   },
   "scripts": {
     "create": "webpack -p",
-    "dev": "webpack-dev-server --open"
+    "dev": "NODE_ENV=development webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",
