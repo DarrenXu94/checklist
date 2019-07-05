@@ -18,13 +18,13 @@ async function run() {
   if (conn == null) {
     conn = await mongoose
       .connect(uri, { useNewUrlParser: true })
+    const ShoppingSchema = new Schema({
+      task: String
+    })
+
+    const ShoppingLayout = mongoose.model('shoppingModel', ShoppingSchema)
   }
 
-  const ShoppingSchema = new Schema({
-    task: String
-  })
-
-  const ShoppingLayout = mongoose.model('shoppingModel', ShoppingSchema)
   let items = await ShoppingLayout
   return items
 }
