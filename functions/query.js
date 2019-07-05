@@ -5,19 +5,23 @@ let conn = null;
 
 const uri = `mongodb://${process.env.MONGO_AUTH}@ds247377.mlab.com:47377/shopping`;
 
-exports.handler = async function(event, context, callback) {
+exports.handler = async function (event, context, callback) {
 
   context.callbackWaitsForEmptyEventLoop = false;
 
   let res = await run()
-  
+  return res
+
 };
 
 async function run() {
-  conn = await mongoose
-  .connect(uri, { useNewUrlParser: true })
+  if (conn == null) {
+    conn = await mongoose
+      .connect(uri, { useNewUrlParser: true })
+  }
+
   const ShoppingSchema = new Schema({
-      task: String
+    task: String
   })
 
   const ShoppingLayout = mongoose.model('shoppingModel', ShoppingSchema)
