@@ -23,7 +23,6 @@ async function run() {
     ShoppingSchema = new Schema({
       task: String
     })
-
     ShoppingLayout = mongoose.model('shoppingModel', ShoppingSchema)
   }
 
