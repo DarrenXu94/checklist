@@ -6,7 +6,7 @@ import NewTask from './_components/NewTask/NewTask'
 import RenderList from './_components/RenderList/RenderList'
 
 
-import { FetchList } from './_actions/FetchData'
+import { Query } from './_actions/Query'
 import { UpdateData, DeleteData } from './_actions/UpdateData'
 
 class App extends React.Component {
@@ -22,8 +22,8 @@ class App extends React.Component {
     }
 
     async componentDidMount() {
-        let localList = await FetchList()
-        localList = this.tagSpecial(localList)
+        let localList = await Query('GET')
+        localList = this.tagSpecial(localList.data)
         this.setState({ localList })
     }
    

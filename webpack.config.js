@@ -3,6 +3,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './app/index.js',
+    devServer: {
+        proxy: {
+          '/': 'http://localhost:9000/',
+        },
+      },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index_bundle.js'
