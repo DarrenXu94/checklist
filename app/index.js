@@ -21,9 +21,16 @@ class App extends React.Component {
         })
     }
 
+    queryMongoFind = async () => {
+        let fetchQuery = await Query('GET')
+        // Error handling here?
+
+        return fetchQuery.data
+    }
+
     async componentDidMount() {
-        let localList = await Query('GET')
-        localList = this.tagSpecial(localList.data)
+        let localList = await this.queryMongoFind()
+        localList = this.tagSpecial(localList)
         this.setState({ localList })
     }
    
