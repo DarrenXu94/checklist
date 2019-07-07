@@ -68,11 +68,9 @@ class App extends React.Component {
     handleDelete = async (e) => {
         let currentList = this.state.localList
         const newList = currentList.filter(el=>{
-            return (el.id !== e)
+            return (el._id !== e)
         })
         this.setState({localList: newList})
-        // await DeleteData(e)
-        // console.log(e)
         let deleteQuery = await Query('DELETE', {id:e})
         console.log(deleteQuery)
 
