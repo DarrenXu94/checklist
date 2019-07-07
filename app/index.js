@@ -23,8 +23,8 @@ class App extends React.Component {
 
     queryMongoFind = async () => {
         let fetchQuery = await Query('GET')
+        console.log(fetchQuery.data)
         // Error handling here?
-
         return fetchQuery.data
     }
 
@@ -37,11 +37,15 @@ class App extends React.Component {
 
     handleAddNew = async (e) => {
         const value = e.current.value
+        let fetchQuery = await Query('POST', {task: value})
+        console.log(fetchQuery.data)
+
         let newList = this.state.localList
         newList.push({
-            id: (Math.floor(Math.random() * Math.floor(100))).toString(),
-            task: value
+            _id: fetchQuery._id,
+            task: fetchQuery.task
         })
+        console.log(newList)
         this.setState({localList: newList})
 
 
@@ -67,7 +71,11 @@ class App extends React.Component {
             return (el.id !== e)
         })
         this.setState({localList: newList})
-        await DeleteData(e)
+        // await DeleteData(e)
+        // console.log(e)
+        let deleteQuery = await Query('DELETE', {id:e})
+        console.log(deleteQuery)
+
     }
 
     render() {

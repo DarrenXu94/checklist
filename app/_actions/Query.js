@@ -30,5 +30,5 @@ const PostOne = async (args) => {
 
 const DeleteOne = async (args) => {
     let { id } = args
-    return await axios.put(`/.netlify/functions/query?id=${id}`)
+    return await axios.delete(`/.netlify/functions/query?id=${id}`)
 }

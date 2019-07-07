@@ -68,5 +68,5 @@ async function putOne (queryStringParameters) {
 
 async function deleteOne (queryStringParameters) {
   let id = queryStringParameters['id'];
-  return await ShoppingLayout.findOneAndRemove({_id:id})
+  return await ShoppingLayout.deleteOne({_id:id})
 }
