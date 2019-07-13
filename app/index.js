@@ -6,7 +6,7 @@ import NewTask from './_components/NewTask/NewTask'
 import RenderList from './_components/RenderList/RenderList'
 
 
-import { FetchList } from './_actions/FetchData'
+import { Query } from './_actions/Query'
 import { UpdateData, DeleteData } from './_actions/UpdateData'
 
 class App extends React.Component {
@@ -21,8 +21,15 @@ class App extends React.Component {
         })
     }
 
+    queryMongoFind = async () => {
+        let fetchQuery = await Query('GET')
+        console.log(fetchQuery.data)
+        // Error handling here?
+        return fetchQuery.data
+    }
+
     async componentDidMount() {
-        let localList = await FetchList()
+        let localList = await this.queryMongoFind()
         localList = this.tagSpecial(localList)
         this.setState({ localList })
     }
@@ -30,11 +37,15 @@ class App extends React.Component {
 
     handleAddNew = async (e) => {
         const value = e.current.value
+        let fetchQuery = await Query('POST', {task: value})
+        console.log(fetchQuery.data)
+
         let newList = this.state.localList
         newList.push({
-            id: (Math.floor(Math.random() * Math.floor(100))).toString(),
-            task: value
+            _id: fetchQuery.data._id,
+            task: fetchQuery.data.task
         })
+        console.log(newList)
         this.setState({localList: newList})
 
 
@@ -42,25 +53,29 @@ class App extends React.Component {
 
     handleSubmit = async (e) => {
         const value = e.current.value
-        const name = e.current.id
+        const id = e.current.id
         
         let currentList = this.state.localList
         const newList = currentList.map((el) => {
-            return (el.id == name) ? {id:el.id, task: value} : el
+            return (el._id == id) ? {_id:el._id, task: value} : el
         })
 
         this.setState({localList: newList})
-        await UpdateData({id:name, task: value})
+        // await UpdateData({id:id, task: value})
+        let putQuery = await Query('PUT', {id:id, task: value})
+
 
     }
 
     handleDelete = async (e) => {
         let currentList = this.state.localList
         const newList = currentList.filter(el=>{
-            return (el.id !== e)
+            return (el._id !== e)
         })
         this.setState({localList: newList})
-        await DeleteData(e)
+        let deleteQuery = await Query('DELETE', {id:e})
+        console.log(deleteQuery)
+
     }
 
     render() {

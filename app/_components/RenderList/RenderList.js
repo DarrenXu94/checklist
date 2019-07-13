@@ -23,7 +23,7 @@ export default class RenderList extends Component {
         return (localList.length == 0)
             ? "Loading"
             : localList.map((val) => {
-                return <ListItem key={val.task} data={val} selected={this.state.selectedItem == val.id} 
+                return <ListItem key={val.task} data={val} selected={this.state.selectedItem == val._id} 
                 handleSubmit = {this.props.handleSubmit}
                 handleDelete = {this.props.handleDelete}
                 deselectOnSubmit = {this.deselectOnSubmit}

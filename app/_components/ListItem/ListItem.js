@@ -20,7 +20,7 @@ export default class ListItem extends Component {
         e.preventDefault()
         this.setState({ itemClass: 'darkFont card' })
         setTimeout(() => {
-            this.props.handleDelete(this.props.data.id)
+            this.props.handleDelete(this.props.data._id)
         }, 950);
     }
     componentDidUpdate() {
@@ -32,18 +32,18 @@ export default class ListItem extends Component {
     EditTaskForm = () => {
 
         if (!this.props.selected) {
-            return <li className={"listItem list-style"} id={this.props.data.id}>
+            return <li className={"listItem list-style"} id={this.props.data._id}>
                 {this.props.data.task}
             </li>
         }
 
         return (
-            <form id={this.props.data.id} className={"baseForm grid-5-3"} onSubmit={this.handleSubmit}>
+            <form id={this.props.data._id} className={"baseForm grid-5-3"} onSubmit={this.handleSubmit}>
                 <input
                     className={"input-style"}
-                    id={this.props.data.id}
+                    id={this.props.data._id}
                     type="text"
-                    name={this.props.data.id}
+                    name={this.props.data._id}
                     defaultValue={this.props.data.task}
                     ref={this.input} />
 

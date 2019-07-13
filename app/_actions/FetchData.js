@@ -1,3 +1,6 @@
+import axios from 'axios'
+
+
 const testList = [
     {id:"first", task:"Canned chickpeas"},
     {id:"second", task:"Bread"},
@@ -8,6 +11,8 @@ const testList = [
 const timeout = ms => new Promise(res => setTimeout(res, ms))
 
 export const FetchList = async () => {
-    await timeout(1000)
-    return testList
+    // await timeout(1000)
+    return (process.env.NODE_ENV == 'development')
+    ? testList
+    : await axios.get('/.netlify/functions/query')
 }

@@ -15,14 +15,24 @@
   },
   "scripts": {
     "create": "webpack -p",
-    "dev": "webpack-dev-server --open"
+    "dev": "concurrently \"NODE_ENV=development netlify-lambda serve functions\" \"webpack-dev-server --open\""
+  },
+  "proxy": {
+    "/.netlify/functions": {
+      "target": "http://localhost:9000",
+      "pathRewrite": {
+        "^/\\.netlify/functions": ""
+      }
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
+    "axios": "^0.19.0",
     "classnames": "^2.2.6",
+    "mongoose": "^5.6.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -33,8 +43,10 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "concurrently": "^4.1.1",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
+    "netlify-lambda": "^1.5.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
