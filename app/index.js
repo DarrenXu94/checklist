@@ -42,8 +42,8 @@ class App extends React.Component {
 
         let newList = this.state.localList
         newList.push({
-            _id: fetchQuery._id,
-            task: fetchQuery.task
+            _id: fetchQuery.data._id,
+            task: fetchQuery.data.task
         })
         console.log(newList)
         this.setState({localList: newList})
@@ -53,15 +53,17 @@ class App extends React.Component {
 
     handleSubmit = async (e) => {
         const value = e.current.value
-        const name = e.current.id
+        const id = e.current.id
         
         let currentList = this.state.localList
         const newList = currentList.map((el) => {
-            return (el.id == name) ? {id:el.id, task: value} : el
+            return (el._id == id) ? {_id:el._id, task: value} : el
         })
 
         this.setState({localList: newList})
-        await UpdateData({id:name, task: value})
+        // await UpdateData({id:id, task: value})
+        let putQuery = await Query('PUT', {id:id, task: value})
+
 
     }
 
