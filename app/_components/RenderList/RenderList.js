@@ -19,7 +19,12 @@ export default class RenderList extends Component {
         } else {
             console.log("Check off", e.target.id)
             let newHighlightArray = this.state.highlightedArray
-            newHighlightArray.push(e.target.id)
+            if (newHighlightArray.includes(e.target.id)) {
+                // Remvoe from array
+                newHighlightArray = newHighlightArray.filter(x => x != e.target.id)
+            } else {
+                newHighlightArray.push(e.target.id)
+            }
             this.setState({ highlightedArray: newHighlightArray })
         }
     }
