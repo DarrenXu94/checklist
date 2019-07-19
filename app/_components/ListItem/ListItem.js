@@ -65,7 +65,7 @@ export default class ListItem extends Component {
 
     render() {
         return (
-            <div className={this.state.itemClass} id={this.props.data.id}>
+            <div className={`${this.state.itemClass} ${this.props.highlightedArray ? 'bgHighlight' : "none"}`} id={this.props.data.id}>
                 <ul className={"ulStyle"}>
                     {this.EditTaskForm()}
                 </ul>
