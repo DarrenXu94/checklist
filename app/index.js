@@ -4,6 +4,9 @@ import './index.scss';
 
 import NewTask from './_components/NewTask/NewTask'
 import RenderList from './_components/RenderList/RenderList'
+import Toggle from './_components/Toggle/Toggle'
+
+import Mode from './_stores/Mode'
 
 
 import { Query } from './_actions/Query'
@@ -81,9 +84,12 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <Mode>
+
                 <header>
 
                 <h1 className={"darkFont"}>Shopping List</h1>
+                <Toggle />
                 </header>
                 <section className={"content"} >
 
@@ -95,6 +101,7 @@ class App extends React.Component {
                 handleDelete = {this.handleDelete}
                 />
                 </section>
+                </Mode>
             </div>
         )
     }
