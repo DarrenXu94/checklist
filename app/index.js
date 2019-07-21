@@ -4,6 +4,10 @@ import './index.scss';
 
 import NewTask from './_components/NewTask/NewTask'
 import RenderList from './_components/RenderList/RenderList'
+import Toggle from './_components/Toggle/Toggle'
+
+import Mode from './_stores/Mode'
+import { ModeContext } from './_stores/ModeContext'
 
 
 import { Query } from './_actions/Query'
@@ -33,11 +37,11 @@ class App extends React.Component {
         localList = this.tagSpecial(localList)
         this.setState({ localList })
     }
-   
+
 
     handleAddNew = async (e) => {
         const value = e.current.value
-        let fetchQuery = await Query('POST', {task: value})
+        let fetchQuery = await Query('POST', { task: value })
         console.log(fetchQuery.data)
 
         let newList = this.state.localList
@@ -46,7 +50,7 @@ class App extends React.Component {
             task: fetchQuery.data.task
         })
         console.log(newList)
-        this.setState({localList: newList})
+        this.setState({ localList: newList })
 
 
     }
@@ -54,26 +58,26 @@ class App extends React.Component {
     handleSubmit = async (e) => {
         const value = e.current.value
         const id = e.current.id
-        
+
         let currentList = this.state.localList
         const newList = currentList.map((el) => {
-            return (el._id == id) ? {_id:el._id, task: value} : el
+            return (el._id == id) ? { _id: el._id, task: value } : el
         })
 
-        this.setState({localList: newList})
+        this.setState({ localList: newList })
         // await UpdateData({id:id, task: value})
-        let putQuery = await Query('PUT', {id:id, task: value})
+        let putQuery = await Query('PUT', { id: id, task: value })
 
 
     }
 
     handleDelete = async (e) => {
         let currentList = this.state.localList
-        const newList = currentList.filter(el=>{
+        const newList = currentList.filter(el => {
             return (el._id !== e)
         })
-        this.setState({localList: newList})
-        let deleteQuery = await Query('DELETE', {id:e})
+        this.setState({ localList: newList })
+        let deleteQuery = await Query('DELETE', { id: e })
         console.log(deleteQuery)
 
     }
@@ -81,20 +85,27 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <header>
+                <Mode>
 
-                <h1 className={"darkFont"}>Shopping List</h1>
-                </header>
-                <section className={"content"} >
+                    <header>
 
-                <NewTask handleAddNew= {this.handleAddNew}/>
+                        <h1 className={"darkFont"}>Shopping List</h1>
+                        <Toggle />
+                    </header>
+                    <section className={"content"} >
+                        <ModeContext.Consumer>
+                            {state =>
+                                (state.modeData == 'edit') && <NewTask handleAddNew={this.handleAddNew} />
+                            }
+                        </ModeContext.Consumer>
 
-                <RenderList 
-                localList={this.state.localList} 
-                handleSubmit = {this.handleSubmit}
-                handleDelete = {this.handleDelete}
-                />
-                </section>
+                        <RenderList
+                            localList={this.state.localList}
+                            handleSubmit={this.handleSubmit}
+                            handleDelete={this.handleDelete}
+                        />
+                    </section>
+                </Mode>
             </div>
         )
     }

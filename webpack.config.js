@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -39,7 +40,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject:true,
             template: 'app/index.html'
-        })
+        }),
+        new webpack.ProvidePlugin({
+            "React": "react",
+          })
 
     ]
 
