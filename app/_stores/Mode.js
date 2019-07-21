@@ -4,7 +4,7 @@ import { ModeProvider } from './ModeContext'
 // Custom hook
 
 export default function Mode({ children }) {
-    const [modeData, setModeData] = useState("edit")
+    const [modeData, setModeData] = useState("final")
     return (
         <ModeProvider value={{
             modeData: modeData,
