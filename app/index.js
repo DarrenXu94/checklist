@@ -12,6 +12,7 @@ import { ModeContext } from './_stores/ModeContext'
 
 import { Query } from './_actions/Query'
 import { UpdateData, DeleteData } from './_actions/UpdateData'
+import AmountManager from './_components/AmountTracker/AmountManager';
 
 class App extends React.Component {
     state = {
@@ -91,6 +92,7 @@ class App extends React.Component {
 
                         <h1 className={"darkFont"}>Shopping List</h1>
                         <Toggle />
+                        <AmountManager />
                     </header>
                     <section className={"content"} >
                         <ModeContext.Consumer>

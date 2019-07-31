@@ -18,7 +18,7 @@ exports.handler = async function (event, context, callback) {
   let res = await run(method, queryStringParameters)
   // return res
   callback(null, {
-    statusCode:200,
+    statusCode: 200,
     body: JSON.stringify(res)
   })
 
@@ -34,7 +34,7 @@ async function run(method, queryStringParameters) {
     ShoppingLayout = mongoose.model('shoppingModel', ShoppingSchema)
   }
 
-  switch(method){
+  switch (method) {
     case 'GET':
       return await findAll()
     case 'POST':
@@ -42,17 +42,17 @@ async function run(method, queryStringParameters) {
     case 'PUT':
       return await putOne(queryStringParameters)
     case 'DELETE':
-      return await deleteOne(queryStringParameters)  
+      return await deleteOne(queryStringParameters)
     default:
-      return  
+      return
   }
 }
 
-async function findAll () {
+async function findAll() {
   return await ShoppingLayout.find()
 }
 
-async function postOne (queryStringParameters) {
+async function postOne(queryStringParameters) {
   let task = queryStringParameters['task'];
   const newTask = new ShoppingLayout({
     task
@@ -60,13 +60,13 @@ async function postOne (queryStringParameters) {
   return await newTask.save()
 }
 
-async function putOne (queryStringParameters) {
+async function putOne(queryStringParameters) {
   let id = queryStringParameters['id'];
   let task = queryStringParameters['task'];
-  return await ShoppingLayout.updateOne({_id:id}, {task})
+  return await ShoppingLayout.updateOne({ _id: id }, { task })
 }
 
-async function deleteOne (queryStringParameters) {
+async function deleteOne(queryStringParameters) {
   let id = queryStringParameters['id'];
-  return await ShoppingLayout.deleteOne({_id:id})
+  return await ShoppingLayout.deleteOne({ _id: id })
 }
