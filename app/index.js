@@ -92,7 +92,7 @@ class App extends React.Component {
 
                         <h1 className={"darkFont"}>Shopping List</h1>
                         <Toggle />
-                        <AmountManager />
+                        {/* <AmountManager /> */}
                     </header>
                     <section className={"content"} >
                         <ModeContext.Consumer>
